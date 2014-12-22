@@ -12,7 +12,12 @@
     "migrate": "./node_modules/sequelize-cli/bin/sequelize"
   },
   "dependencies": {
+    "redis": "latest",
+    "coffee-script": "latest",
     "aws-sqs-promises": "0.0.3",
+    "q": "latest",
+    "bluebird": "latest",
+    "bcrypt": "latest",
     "crypto": "0.0.3",
     "debug": "~2.0.0",
     "express": "~4.9.0",
@@ -29,6 +34,17 @@
     "serve-favicon": "~2.1.3"
   },
   "devDependencies": {
+    "should": "*",
+    "chai": "*",
+    "chai-as-promised": "latest",
+    "gulp-iced-coffee": "git://github.com/kulicuu/gulp-iced-coffee.git",
+    "gulp-ignore": "latest",
+    "gulp-changed": "latest",
+    "gulp-coffee": "latest",
+    "orchestrator": "latest",
+    "vinyl-buffer": "latest",
+    "gulp-rename": "latest",
+    "gulp": "latest",
     "faux-knox": "^0.1.15",
     "mocha": "*",
     "sinon": "*"
