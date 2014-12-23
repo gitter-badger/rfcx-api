@@ -9,7 +9,7 @@
       topher: {
         username: 'topher',
         token: '',
-        password: 'move to hashed salted',
+        password: 'deprecate in favor of hashed salted',
         hash: 'santoeu'
       },
       kevin: {},
