@@ -2,7 +2,7 @@
 c= console.log
 
 module.exports= (sequelize, DataTypes)->
-  GuardianCheckIn= sequelize.define 'GuardianCheckIn', 
+  GuardianCheckIn= sequelize.define 'GuardianCheckIn',
     guid:
       type: DataTypes.UUID
       defaultValue: DataTypes.UUIDV4
@@ -64,7 +64,6 @@ module.exports= (sequelize, DataTypes)->
     classMethods:
       associate: (models)->
         #associations can be defined here
-        return
-          belongsTo: model: 'GuardianSoftware', as: 'SoftwareVersion'
+        return {belongsTo: {model: 'GuardianSoftware', as: 'SoftwareVersion'}}
 
   # return GuardianCheckIn #implicit return

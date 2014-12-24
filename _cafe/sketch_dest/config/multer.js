@@ -1,8 +1,12 @@
+(function() {
+  var c;
 
-exports.config = function(processEnv){
-  return {
+  c = console.log;
 
-    dest: processEnv.UPLOAD_CACHE_DIRECTORY
-  
+  exports.config = function(processEnv) {
+    return {
+      dest: processEnv.UPLOAD_CACHE_DIRECTORY
+    };
   };
-}
+
+}).call(this);
