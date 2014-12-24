@@ -34,8 +34,9 @@
     "serve-favicon": "~2.1.3"
   },
   "devDependencies": {
-    "should": "*",
-    "chai": "*",
+    "supertest": "latest",
+    "should": "latest",
+    "chai": "latest",
     "chai-as-promised": "latest",
     "gulp-iced-coffee": "git://github.com/kulicuu/gulp-iced-coffee.git",
     "gulp-ignore": "latest",
@@ -46,7 +47,7 @@
     "gulp-rename": "latest",
     "gulp": "latest",
     "faux-knox": "^0.1.15",
-    "mocha": "*",
+    "mocha": "latest",
     "sinon": "*"
   }
 }

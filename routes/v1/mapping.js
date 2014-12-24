@@ -11,7 +11,6 @@ router.route("/register")
       models.MappingUser
         .findOrCreate({ where: { guid: reqMappingUser.guid, name: reqMappingUser.name } })
         .spread(function(dbMappingUser, wasCreated){
-          
           res.status(200).json({
             guid: dbMappingUser.guid,
             name: dbMappingUser.name,
