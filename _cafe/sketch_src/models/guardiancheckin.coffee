@@ -1,0 +1,70 @@
+# guardiancheckin model guardiancheckin
+c= console.log
+
+module.exports= (sequelize, DataTypes)->
+  GuardianCheckIn= sequelize.define 'GuardianCheckIn', 
+    guid:
+      type: DataTypes.UUID
+      defaultValue: DataTypes.UUIDV4
+    measured_at:
+      type: DataTypes.DATE
+      defaultValue: DataTypes.NOW
+      validate:
+        isDate: true
+    cpu_percent:
+      type: DataTypes.INTEGER
+      allowNull: true
+      validate:
+        isInt: true
+        min: 0
+        max: 100
+    cpu_clock:
+      type: DataTypes.INTEGER
+      allowNull: true
+      validate:
+        isInt: true
+        min: 0
+        max: 800
+    battery_percent:
+      type: DataTypes.INTEGER
+      allowNull: true
+      validate:
+        isInt: true
+        min: 0
+        max: 100
+    battery_temperature:
+      type: DataTypes.INTEGER
+      allowNull: true
+      validate:
+        isInt: true
+        min: -20
+        max: 99
+    network_search_time:
+      type: DataTypes.INTEGER
+      allowNull: true
+      validate:
+        isInt: true
+        min: 0
+        max: 300000
+    internal_luminosity:
+      type: DataTypes.INTEGER
+      allowNull: true
+      validate:
+        isInt: true
+        min: 0
+        max: 65536
+    network_transmit_time:
+      type: DataTypes.INTEGER
+      allowNull: true
+      validate:
+        isInt: true
+        min: 0
+        max: 3000000
+  ,
+    classMethods:
+      associate: (models)->
+        #associations can be defined here
+        return
+          belongsTo: model: 'GuardianSoftware', as: 'SoftwareVersion'
+
+  # return GuardianCheckIn #implicit return
