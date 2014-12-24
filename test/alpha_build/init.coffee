@@ -15,3 +15,11 @@ global.Assertion= chai.Assertion
 global.assert= chai.assert
 
 c "init here"
+app= require('../../_cafe/sketch_src/app')
+#index= require('../../_cafe/sketch_src/models/index')
+
+# how injection is handled in britvic, one reason i was thinking to change 
+# the module exports thing a bit in rfcx-api .
+
+#global.relationMi= ss.api.britvic.models.relation_iced 
+#global.Relation= require('../../server/models/relation_iced').Relation

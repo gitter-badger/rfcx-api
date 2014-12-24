@@ -9,7 +9,8 @@
 
 
 
-#### example calls (these with cS)
+#### example calls 
+_(these with cS; will also test vJS on the core, just getting started here )_
 
 
 _just an example_

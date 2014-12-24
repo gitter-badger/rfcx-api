@@ -1,5 +1,6 @@
 # model index model
 c= console.log
+c "index here"
 
 fs= require 'fs'
 path= require 'path'
