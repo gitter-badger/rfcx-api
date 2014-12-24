@@ -36,6 +36,7 @@
     "serve-favicon": "~2.1.3"
   },
   "devDependencies": {
+    "iced-coffee-script": "latest",
     "supertest": "latest",
     "should": "latest",
     "chai": "latest",

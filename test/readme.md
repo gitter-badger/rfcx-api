@@ -6,6 +6,10 @@
 
 
 
+#### example calls for vJS
+
+`mocha "./test/master_build/**/*.iced" --timeout 10000 --require test/master_build/init.js`
+
 
 
 
