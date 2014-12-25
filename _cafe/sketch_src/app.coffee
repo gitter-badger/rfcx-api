@@ -13,10 +13,13 @@ if (process.env.NODE_ENV is 'production')
 
 express= require 'express'
 path= require 'path'
+bodyParser= require 'body-parser'
 favicon= require 'serve-favicon'
 logger= require 'morgan'
 multer= require 'multer'
 passport= require 'passport'
+
+require('./config/passport')(passport)
 middleware= {}
 app= express()
 

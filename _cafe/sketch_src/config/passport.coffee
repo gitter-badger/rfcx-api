@@ -1,8 +1,13 @@
 # config passport config
+c= console.log
 LocalStrategy= require('passport-local').Strategy
-User= require('../app/models/user')
+#User= require('../app/models/user')
 
 module.exports= (passport)->
+  c "here"
+
+
+  #passport.use 'local-signup', 
 
   # passport.serializeUser(function(user,done){
   #   done(null,user.id);

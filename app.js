@@ -35,8 +35,7 @@ var routes = {
     "guardians": require("./routes/v1/guardians"),
     "checkins": require("./routes/v1/checkins")
   },
-  "v2": {
-  }
+  "v2": {}
 };
 
 // Initialize Version-Specific Middleware
