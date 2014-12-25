@@ -12,6 +12,8 @@
     "migrate": "./node_modules/sequelize-cli/bin/sequelize"
   },
   "dependencies": {
+    "body-parser": "latest",
+    "jwt-simple": "latest",
     "node-uuid": "latest",
     "lodash": "latest",
     "redis": "latest",
