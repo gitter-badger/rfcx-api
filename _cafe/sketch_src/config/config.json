@@ -1,0 +1,6 @@
+{ 
+"development": { "username": "undefined", "password": "undefined", "database": "undefined", "host": "undefined", "dialect": "mysql", "logging": undefined, "define": { "underscored": true, "charset": "utf8", "collate": "utf8_general_ci", "timestamps": true } }, 
+"test": { "username": "undefined", "password": "undefined", "database": "undefined", "host": "undefined", "dialect": "mysql", "logging": undefined, "define": { "underscored": true, "charset": "utf8", "collate": "utf8_general_ci", "timestamps": true } }, 
+"staging": { "username": "undefined", "password": "undefined", "database": "undefined", "host": "undefined", "dialect": "mysql", "logging": undefined, "define": { "underscored": true, "charset": "utf8", "collate": "utf8_general_ci", "timestamps": true } }, 
+"production": { "username": "undefined", "password": "undefined", "database": "undefined", "host": "undefined", "dialect": "mysql", "logging": undefined, "define": { "underscored": true, "charset": "utf8", "collate": "utf8_general_ci", "timestamps": true } } 
+}
