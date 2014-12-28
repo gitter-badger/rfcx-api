@@ -9,11 +9,12 @@ if (fs.existsSync("./config/env_vars.js")) {
 if (process.env.NODE_ENV === "production") {
   process.env.NEW_RELIC_HOME = __dirname+"/config"; require("newrelic");
 }
-
+var c = console.log;
 var express = require("express");
 var path = require("path");
 var favicon = require("serve-favicon");
 var logger = require("morgan");
+var bodyParser = require("body-parser");
 var multer = require("multer");
 var passport = require("passport");
 var middleware = {};
@@ -23,14 +24,17 @@ app.set("title", "Rainforest Connection API");
 app.set("port", process.env.PORT || 8080);
 app.use(favicon(__dirname + "/public/img/logo/favicon.ico"));
 app.use(logger("dev"));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(multer(require("./config/multer").config(process.env)));
 app.use(express.static(path.join(__dirname, "public")));
+app.set('view engine', 'jade');
 app.use(passport.initialize());
 
 // Define/Load Routes
 var routes = {
   "v1": {
-    "users": require("./routes/v1/users"),
+    "users": require("./routes/v1/users")(app, passport),
     "mapping": require("./routes/v1/mapping"),
     "guardians": require("./routes/v1/guardians"),
     "checkins": require("./routes/v1/checkins")

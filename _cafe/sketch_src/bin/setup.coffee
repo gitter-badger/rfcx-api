@@ -14,7 +14,7 @@ generateSequelizeConfigJson= ->
   configCustom= configCustom = '"username": "'+process.env.RDS_USERNAME+'", "password": "'+process.env.RDS_PASSWORD+'", "database": "'+process.env.RDS_DB_NAME+'", "host": "'+process.env.RDS_HOSTNAME+'"'
 
   configGeneric = '"dialect": "mysql", "logging": 
-    '+process.env.SEQUELIZE_VERBOSE+', "define": { "underscored": true, "charset": "utf8", "collate": 
+    '+(process.env.SEQUELIZE_VERBOSE or false)+', "define": { "underscored": true, "charset": "utf8", "collate": 
     "utf8_general_ci", "timestamps": true }'
 
   configJsonContent = '{ '+'\n"development": { '+configCustom+', '+configGeneric+' }, 
