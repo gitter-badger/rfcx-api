@@ -17,6 +17,11 @@ var tempUserOb = {
     hash: '$2a$10$JVtz0/3g2UBW8Fx7X2yVmOdOIMLe0hc.BB0xe0TrkhqlzmbD9FrXe',
     salt: '$2a$10$JVtz0/3g2UBW8Fx7X2yVmO'
   },
+  'michelle': {
+    username: 'michelle',
+    hash: "$2a$10$NK3mBayHtlR8x4fxfkj2Zu7nDGm8NdEKQLNTkpo2TUn9qM6keGeMG",
+    salt: "$2a$10$NK3mBayHtlR8x4fxfkj2Zu"
+  },
   'stefan': {
     username: 'stefan',
     hash: "$2a$10$WbeQh4Iul7C9mqgKaE.n/efqXU7vurjcQ.lxPFUtU2tsMnfC.lWVe",

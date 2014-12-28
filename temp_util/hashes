@@ -1,0 +1,26 @@
+
+
+ user: "kevin"
+ password: ""
+ hash: "$2a$10$raPUq9cTmFBRMlLZpJBRwuoE/tgRid/G51x4xnjfJCSev66LNIF02"
+ salt: "$2a$10$raPUq9cTmFBRMlLZpJBRwu"
+
+ user: "michelle"
+ password: ""
+ hash: "$2a$10$NK3mBayHtlR8x4fxfkj2Zu7nDGm8NdEKQLNTkpo2TUn9qM6keGeMG"
+ salt: "$2a$10$NK3mBayHtlR8x4fxfkj2Zu"
+
+ user: "stefan"
+ password: ""
+ hash: "$2a$10$XueB1Gbo8UZg54p/Q9gvwOCNHvnYao5WuWsuMAU1A2EXUoHasWLqW"
+ salt: "$2a$10$XueB1Gbo8UZg54p/Q9gvwO"
+
+ user: "topher"
+ password: ""
+ hash: "$2a$10$73zy.aYP/fgaNm38mPuD1.8J.mSKvK6oqmB7x.XXlHN0aDfAQiwSe"
+ salt: "$2a$10$73zy.aYP/fgaNm38mPuD1."
+
+ user: "wylie"
+ password: "snth"
+ hash: "$2a$10$j7hQJR81TBK4VSWkCsYOWeXkneqQcmnMsgDsZ4Cycu7jAc/ycKi.y"
+ salt: "$2a$10$j7hQJR81TBK4VSWkCsYOWe"

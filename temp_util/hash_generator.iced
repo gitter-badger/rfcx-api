@@ -7,6 +7,10 @@ userOb=
     password: ''
     hash: null
     salt: null
+  'michelle':
+    password: ''
+    hash: null
+    salt: null
   'stefan':
     password: ''
     hash: null
