@@ -13,7 +13,7 @@ if (process.env.NODE_ENV is 'production')
 
 express= require 'express'
 path= require 'path'
-bodyParser= require 'body-parser'
+#bodyParser= require 'body-parser'
 favicon= require 'serve-favicon'
 logger= require 'morgan'
 multer= require 'multer'
@@ -29,7 +29,7 @@ app.use(favicon(__dirname + "/public/img/logo/favicon.ico"))
 app.use(logger("dev"))
 app.use(multer(require('./config/multer').config(process.env)))
 app.use(express.static(path.join(__dirname, 'public')))
-app.use(passport.initialize())
+#app.use(passport.initialize())
 
 # Define and load routes
 routes=

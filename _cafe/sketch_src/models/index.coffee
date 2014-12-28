@@ -1,6 +1,5 @@
 # model index model
 c= console.log
-c "index here"
 
 fs= require 'fs'
 path= require 'path'
@@ -10,13 +9,12 @@ config= require(__dirname + '/../config/config.json')[env]
 sequelize= new Sequelize(config.database, config.username, config.password, config)
 db= {}
 
-fs
-  .readdirSync(__dirname)
-  .filter (file)->
-    return (file.indexOf(".") isnt 0) and (file isnt "index.js") and (file isnt "_associations.js")
-  .forEach (file)->
-    model= sequelize['import'](path.join(__dirname, file))
-    db[model.name]= model
+arr= fs.readdirSync(__dirname)
+arr2= arr.filter (file)->
+  return ((file.indexOf(".") isnt 0) and ((file isnt "index.coffee") and (file isnt "index.js")) and (file isnt "_associations.js"))
+arr2.forEach (file)->
+  model= sequelize['import'](path.join(__dirname, file))
+  db[model.name]= model
 
 Object.keys(db).forEach (modelName)->
   if ("associate" in db[modelName])

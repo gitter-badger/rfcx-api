@@ -4,7 +4,7 @@ c= console.log
 SQS= require 'aws-sqs-promises'
 S3= require 'knox'
 
-exports.aws (env)->
+exports.aws= (env)->
 
   return {
     sqs: (queueName)->

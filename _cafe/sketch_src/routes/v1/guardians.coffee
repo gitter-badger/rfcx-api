@@ -5,7 +5,7 @@
 
 models= require('../../models')
 express= require 'express'
-router= require express.Router()
+router= express.Router()
 
 router.route '/'
   .get (req, res)->

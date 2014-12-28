@@ -15,8 +15,8 @@ exports.env = {
   AWS_S3_BUCKET_AUDIO: "",
 
   RDS_HOSTNAME: "",
-  RDS_DB_NAME: "",
-  RDS_USERNAME: "wylie",
+  RDS_DB_NAME: "rfcx_api",
+  RDS_USERNAME: "wylie@localhost",
   RDS_PASSWORD: "",
   RDS_PORT: 3306,
 
