@@ -1,40 +1,51 @@
 // could move requirements to an api which is injected to everything
-
-var bcrypt = require('bcrypt');
+var _ = require('lodash');
+var bcrypt = require('bcrypt-nodejs');
 var uid = require('node-uuid');
 var c = console.log;
 var models  = require('../../models');
 var express = require('express');
 var router = express.Router();
-
-var LocalStrategy= require('passport-local').Strategy
+var LocalStrategy= require('passport-local').Strategy;
+var tempUserOb = {
+  'kevin': {
+    hash: '$2a$10$JVtz0/3g2UBW8Fx7X2yVmOdOIMLe0hc.BB0xe0TrkhqlzmbD9FrXe',
+    salt: '$2a$10$JVtz0/3g2UBW8Fx7X2yVmO'
+  },
+  'stefan': {
+    hash: "$2a$10$WbeQh4Iul7C9mqgKaE.n/efqXU7vurjcQ.lxPFUtU2tsMnfC.lWVe",
+    salt: "$2a$10$WbeQh4Iul7C9mqgKaE.n/e"
+  },
+  'topher': {
+    hash: "$2a$10$60vaAl/S4/bU9xFZaj88CuZAkCWY9hZdZAnPLrDhjoH.ZoPLMuB8a",
+    salt: "$2a$10$60vaAl/S4/bU9xFZaj88Cu"
+  },
+  'wylie': {
+    hash: "$2a$10$CDEKJXYcYZphDakb0BOlGOyWVlgjNYjs.crikXAllbiipKeFeqCF.",
+    salt: "$2a$10$CDEKJXYcYZphDakb0BOlGO"
+  }
+};
 
 module.exports = function (app, passport) {
 
   passport.use('local-login', new LocalStrategy( function (username, password, done) {
-    // username find in system... then:
-    // get user's salt & hash then:
-    var mockSalt = "salt";
-    var mockHash = "hash";
-    bcrypt.hash(password, mockSalt, null, function (err, hash) {
-      if (err)
-        c(err);
-      else {
-        if (hash === mockHash) {
-          //done(null, userObject);
+    if (_.has(tempUserOb, username)) {
+      var salt= tempUserOb[username].salt;
+      bcrypt.hash(password, salt, null, function (err, hash) {
+        if (err) {
+          c(err);
         } else {
-          //done(null, false);
+          if (hash === tempUserOb[username].hash) {
+            done(null, tempUserOb[username]);
+          } else {
+            done(null, false);
+          }
         }
-      }
-    });
-
-
-    if ((username === 'wylie') && (password === 'snth')) {
-      done(null, {id: "hey"});
+      });
     } else {
       done(null, false);
     }
-  }));
+}));
 
   router.route("/passport_test")
     .get(function(req, res) {
