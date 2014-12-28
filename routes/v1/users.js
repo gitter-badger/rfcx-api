@@ -12,6 +12,23 @@ var LocalStrategy= require('passport-local').Strategy
 module.exports = function (app, passport) {
 
   passport.use('local-login', new LocalStrategy( function (username, password, done) {
+    // username find in system... then:
+    // get user's salt & hash then:
+    var mockSalt = "salt";
+    var mockHash = "hash";
+    bcrypt.hash(password, mockSalt, null, function (err, hash) {
+      if (err)
+        c(err);
+      else {
+        if (hash === mockHash) {
+          //done(null, userObject);
+        } else {
+          //done(null, false);
+        }
+      }
+    });
+
+
     if ((username === 'wylie') && (password === 'snth')) {
       done(null, {id: "hey"});
     } else {
