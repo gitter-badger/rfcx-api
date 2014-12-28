@@ -12,6 +12,7 @@
     "migrate": "./node_modules/sequelize-cli/bin/sequelize"
   },
   "dependencies": {
+    "moment": "latest",
     "bcrypt-nodejs": "latest",
     "body-parser": "latest",
     "jwt-simple": "latest",

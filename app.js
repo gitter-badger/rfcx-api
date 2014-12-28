@@ -9,6 +9,7 @@ if (fs.existsSync("./config/env_vars.js")) {
 if (process.env.NODE_ENV === "production") {
   process.env.NEW_RELIC_HOME = __dirname+"/config"; require("newrelic");
 }
+var jwt= require('jwt-simple');
 var c = console.log;
 var express = require("express");
 var path = require("path");
@@ -29,6 +30,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(multer(require("./config/multer").config(process.env)));
 app.use(express.static(path.join(__dirname, "public")));
 app.set('view engine', 'jade');
+app.set('jwtTokenSecret', 'THE_SECRET_STRING');
 app.use(passport.initialize());
 
 // Define/Load Routes
