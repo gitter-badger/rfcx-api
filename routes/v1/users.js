@@ -14,23 +14,23 @@ var LocalStrategy= require('passport-local').Strategy;
 var tempUserOb = {
   'kevin': {
     username: 'kevin',
-    hash: '$2a$10$JVtz0/3g2UBW8Fx7X2yVmOdOIMLe0hc.BB0xe0TrkhqlzmbD9FrXe',
-    salt: '$2a$10$JVtz0/3g2UBW8Fx7X2yVmO'
+    hash: "$2a$10$kIHo25xb5wbaCfSKVqVCFOo/FaD/taQ0Vyuv6pPs8hLqycGlWU8z6",
+    salt: "$2a$10$kIHo25xb5wbaCfSKVqVCFO"
   },
   'michelle': {
     username: 'michelle',
-    hash: "$2a$10$NK3mBayHtlR8x4fxfkj2Zu7nDGm8NdEKQLNTkpo2TUn9qM6keGeMG",
-    salt: "$2a$10$NK3mBayHtlR8x4fxfkj2Zu"
+    hash: "$2a$10$1ujYwxthXOgLtxWEFuNXfOFs88sbijSkPWgRzXGmkBKsiJLre1Aly",
+    salt: "$2a$10$1ujYwxthXOgLtxWEFuNXfO"
   },
   'stefan': {
     username: 'stefan',
-    hash: "$2a$10$WbeQh4Iul7C9mqgKaE.n/efqXU7vurjcQ.lxPFUtU2tsMnfC.lWVe",
-    salt: "$2a$10$WbeQh4Iul7C9mqgKaE.n/e"
+    hash: "$2a$10$Myf4VAnqB/bx.uicqQZsnu6psvbkCCwl.vnVE9rl2NV7/ebPjM/Mi",
+    salt: "$2a$10$Myf4VAnqB/bx.uicqQZsnu"
   },
   'topher': {
     username: 'topher',
-    hash: "$2a$10$60vaAl/S4/bU9xFZaj88CuZAkCWY9hZdZAnPLrDhjoH.ZoPLMuB8a",
-    salt: "$2a$10$60vaAl/S4/bU9xFZaj88Cu"
+    hash: "$2a$10$2QSPbakDS5r809t2acaKhe7tdq6HbJ8.o0ciDg0ZuFd3U1AO7HpKG",
+    salt: "$2a$10$2QSPbakDS5r809t2acaKhe"
   },
   'wylie': {
     username: 'wylie',
@@ -49,7 +49,7 @@ module.exports = function (app, passport) {
           c(err);
         } else {
           if (hash === tempUserOb[username].hash) {
-            done(null, tempUserOb[username], {user: username});
+            done(null, tempUserOb[username].username, {user: username});
           } else {
             done(null, false, {message: 'incorrect password'});
           }
@@ -62,19 +62,18 @@ module.exports = function (app, passport) {
 
   router.route("/jwt_test")
     .get(function(req, res) {
-      c("in the get");
       if (req.user) {
-        c("very good");
         res.send('good');
       } else {
-        res.json({'bad': 'no user'});
+        //res.json({'bad': 'no user'});
+        res.redirect('gate');
       }
     });
 
-  router.route("/passport_test")
+  router.route("/gate")
 
     .get(function(req, res) {
-      res.render('passport_test')
+      res.render('passport_test');
     })
 
     .post(function(req, res) {

@@ -4,19 +4,19 @@ fs= require 'fs'
 
 userOb=
   'kevin':
-    password: ''
+    password: ' '
     hash: null
     salt: null
   'michelle':
-    password: ''
+    password: ' '
     hash: null
     salt: null
   'stefan':
-    password: ''
+    password: ' '
     hash: null
     salt: null
   'topher':
-    password: ''
+    password: ' '
     hash: null
     salt: null
   'wylie':
