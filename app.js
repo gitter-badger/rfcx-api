@@ -46,7 +46,7 @@ var routes = {
 
 // Initialize Version-Specific Middleware
 for (apiVersion in routes) {
-  middleware[apiVersion] = require("./middleware/"+apiVersion+".js").middleware;
+  middleware[apiVersion] = require("./middleware/"+apiVersion+".js").middleware(app);
   for (middlewareFunc in middleware[apiVersion]) {
      app.use("/"+apiVersion+"/", middleware[apiVersion][middlewareFunc]);
   }

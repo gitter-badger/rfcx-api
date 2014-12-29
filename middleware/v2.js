@@ -1,7 +1,9 @@
-exports.middleware = {
+exports.middleware = function(app) {
 
-  emptyMiddleware: function(req, res, next) {
-    next();
-  },
+  return {
+    emptyMiddleware: function(req, res, next) {
+      next();
+    },
 
+  }
 }

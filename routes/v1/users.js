@@ -42,7 +42,6 @@ var tempUserOb = {
 module.exports = function (app, passport) {
 
   passport.use('local-login', new LocalStrategy( function (username, password, done) {
-    c("in strategy");
     if (_.has(tempUserOb, username)) {
       var salt= tempUserOb[username].salt;
       bcrypt.hash(password, salt, null, function (err, hash) {
@@ -61,6 +60,17 @@ module.exports = function (app, passport) {
     }
 }));
 
+  router.route("/jwt_test")
+    .get(function(req, res) {
+      c("in the get");
+      if (req.user) {
+        c("very good");
+        res.send('good');
+      } else {
+        res.json({'bad': 'no user'});
+      }
+    });
+
   router.route("/passport_test")
 
     .get(function(req, res) {
@@ -69,7 +79,6 @@ module.exports = function (app, passport) {
 
     .post(function(req, res) {
       passport.authenticate('local-login', {session: false}, function(err, user, info) {
-        c("hey");
         //if (err) {return next(err)}
         if (!user) { return res.json(401, {error: info.message})};
         var expires= moment().add('days', 7).valueOf();
@@ -80,8 +89,6 @@ module.exports = function (app, passport) {
         res.json({token: token, expires: expires, user: info.user});
       })(req, res);
     });
-
-
 
   router.route("/")
     .get(function(req, res) {
