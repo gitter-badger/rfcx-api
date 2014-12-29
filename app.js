@@ -21,7 +21,7 @@ var passport = require("passport");
 var middleware = {};
 var app = express();
 
-app.set("title", "Rainforest Connection API");
+app.set("title", "rfcx-api");
 app.set("port", process.env.PORT || 8080);
 app.use(favicon(__dirname + "/public/img/logo/favicon.ico"));
 app.use(logger("dev"));
@@ -36,10 +36,10 @@ app.use(passport.initialize());
 // Define/Load Routes
 var routes = {
   "v1": {
-    "users": require("./routes/v1/users")(app, passport),
-    "mapping": require("./routes/v1/mapping"),
-    "guardians": require("./routes/v1/guardians"),
-    "checkins": require("./routes/v1/checkins")
+    "users": [ require("./routes/v1/users")(app, passport) ],
+    "mapping": [ require("./routes/v1/mapping") ],
+    "guardians": [ require("./routes/v1/guardians"), require("./routes/v1/guardiansoftware") ],
+    "checkins": [ require("./routes/v1/checkins") ]
   },
   "v2": {}
 };
@@ -54,12 +54,14 @@ for (apiVersion in routes) {
 // Initialize Routes
 for (apiVersion in routes) {
   for (routeName in routes[apiVersion]) {
-    app.use("/"+apiVersion+"/"+routeName, routes[apiVersion][routeName]);
+    for (var i = 0; i < routes[apiVersion][routeName].length; i++) {
+      app.use("/"+apiVersion+"/"+routeName, routes[apiVersion][routeName][i]);
+    }
   }
 }
 
 // Health Check Endpoint
-app.get("/health_check",function(req,res){ res.status(200).json({rfcx:"awesome"});});
+app.get("/health_check",function(req,res){ res.status(200).json({app:app.get("title")});});
 
 // Catch & Report Various HTTP Errors (needs some work)
 
