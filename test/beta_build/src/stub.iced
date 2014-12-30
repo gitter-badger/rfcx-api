@@ -15,13 +15,12 @@ describe 'something with supertest<-->express', ->
       .get("/v1/users/gate")
       .expect(200)
       .end (err, res)->
-        c "res on gate get", res.body
+        c "res on gate get", err, res, res.body
     done()
   it "should be able to login with good credences", (done)->
     request(app)
       .post("/v1/users/gate")
-      .set('username', 'wylie')
-      .set('password', 'snth')
+      .send username: 'wylie', password: 'snth'
       .expect('good')
       .end (err, res)->
         c err, res
