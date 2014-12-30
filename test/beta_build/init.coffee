@@ -20,6 +20,7 @@ c "init here"
 global.app= require('../../app')
 models= require('../../models')
 
+
 #require('../../bin/start.js')
 server= app.listen app.get('port'), ->
   c app.get('title') + " (port " + app.get('port') + ") ("+process.env.NODE_ENV + ")"

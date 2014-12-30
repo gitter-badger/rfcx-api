@@ -22,3 +22,7 @@ _(these with cS; will also test vJS on the core, just getting started here )_
 
 
 `mocha --compilers coffee:iced-coffee-script/register "./test/beta_build/src/**/*.iced" --timeout 10000 --require test/beta_build/init.coffee`
+
+or 
+
+`mocha "./test/beta_build/dest/**/*.js" --timeout 10000 -require test/beta_build/init.js`
