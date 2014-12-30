@@ -19,14 +19,7 @@ global.assert= chai.assert
 c "init here"
 global.app= require('../../app')
 models= require('../../models')
+
 #require('../../bin/start.js')
 server= app.listen app.get('port'), ->
   c app.get('title') + " (port " + app.get('port') + ") ("+process.env.NODE_ENV + ")"
-#app= require('../../_cafe/sketch_src/app')
-#index= require('../../_cafe/sketch_src/models/index')
-
-# how injection is handled in britvic, one reason i was thinking to change 
-# the module exports thing a bit in rfcx-api .
-
-#global.relationMi= ss.api.britvic.models.relation_iced 
-#global.Relation= require('../../server/models/relation_iced').Relation
